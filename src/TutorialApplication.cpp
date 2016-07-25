@@ -20,6 +20,7 @@ http://www.ogre3d.org/wiki/
 //#include "Example41.h"
 //#include "ShrewMouceManager.h"
 #include "EntityBaseManager.h"
+#include "EntityBase.h"
 //---------------------------------------------------------------------------
 TutorialApplication::TutorialApplication(void)
 {
@@ -135,6 +136,10 @@ void TutorialApplication::createLight()
 
 void TutorialApplication::createEntity()
 {
+	EntityBase* newEntity = mEntityBaseManager->createEntity(1);
+	mSinbadEntity = newEntity->getEntity();
+	mSinbadNode = newEntity->getSceneNode();
+	/*
 	Ogre::SceneNode* node1 = mSceneMgr->createSceneNode("node1");
 
 	Ogre::SceneNode* nodeRoot = mSceneMgr->getRootSceneNode();
@@ -154,6 +159,7 @@ void TutorialApplication::createEntity()
 	mSinbadEntity = sinbadEntity;
 
 	ani_vec.clear();
+	*/
 
 	/*
 	Ogre::AnimationStateSet* as_set = sinbadEntity->getAllAnimationStates();

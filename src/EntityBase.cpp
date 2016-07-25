@@ -3,14 +3,23 @@
 EntityBase::EntityBase( EntityCsv* entityCsv, Ogre::Entity* entity, Ogre::SceneNode* scene )
 {
 	mEntityCsv		= entityCsv;
-	mSinbadEntity	= entity;
-	mSinbadNode		= scene;
+	mEntity	= entity;
+	mSceneNode		= scene;
 }
 
 EntityBase::~EntityBase()
 {
 	mEntityCsv		= NULL;
-	mSinbadEntity	= NULL;
-	mSinbadNode		= NULL;
+	mEntity	= NULL;
+	mSceneNode		= NULL;
 }
 
+Ogre::Entity* EntityBase::getEntity()
+{
+	return mEntity;
+}
+
+Ogre::SceneNode* EntityBase::getSceneNode()
+{
+	return mSceneNode;
+}

@@ -32,6 +32,8 @@ void EntityCsvManager::loadFile()
 		newEntityCsv->pos_x		= csvData->getIntVal(EntityCsv::POS_X);
 		newEntityCsv->pos_y		= csvData->getIntVal(EntityCsv::POS_Y);
 		newEntityCsv->pos_z		= csvData->getIntVal(EntityCsv::POS_X);
+
+		mEntityCsvList.push_back(newEntityCsv);
 	}
 }
 

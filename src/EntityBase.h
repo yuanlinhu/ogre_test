@@ -17,11 +17,14 @@ public:
 	~EntityBase();
 
 
+	Ogre::Entity*			getEntity();
+	Ogre::SceneNode*		getSceneNode();
+
 private:
 	EntityCsv*				mEntityCsv;
 
-	Ogre::Entity*			mSinbadEntity;
-	Ogre::SceneNode*		mSinbadNode;
+	Ogre::Entity*			mEntity;
+	Ogre::SceneNode*		mSceneNode;
 
 
 private:

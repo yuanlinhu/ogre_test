@@ -2,6 +2,8 @@
 
 Example25FrameListener::Example25FrameListener( Ogre::Entity* entity, Ogre::SceneNode* node, 
 											   OIS::Keyboard* keyboard, Ogre::Camera* cam, OIS::Mouse*mouse)
+: mAnimationState(NULL)
+,mAnimationStateTop(NULL)
 {
 	mEntity = entity;
 	mNode = node;
@@ -9,13 +11,13 @@ Example25FrameListener::Example25FrameListener( Ogre::Entity* entity, Ogre::Scen
 	mCamera = cam;
 	mMouse = mouse;
 
+	/*
 	mAnimationState = mEntity->getAnimationState("RunBase");
 	mAnimationState->setEnabled(true);
-	//mAnimationState->setLoop(true);
 
 	mAnimationStateTop = mEntity->getAnimationState("RunTop");
 	mAnimationStateTop->setEnabled(true);
-	//mAnimationStateTop->setLoop(true);
+	*/
 }
 
 Example25FrameListener::~Example25FrameListener()
@@ -66,13 +68,27 @@ bool Example25FrameListener::frameStarted( const Ogre::FrameEvent& evt )
 
 	if(sinbadTranslate != Ogre::Vector3(0, 0, 0))
 	{
-		mAnimationState->setLoop(true);
-		mAnimationStateTop->setLoop(true);
+		if(mAnimationState)
+		{
+			mAnimationState->setLoop(true);
+		}
+
+		if(mAnimationStateTop)
+		{
+			mAnimationStateTop->setLoop(true);
+		}
 	}
 	else
 	{
-		mAnimationState->setLoop(false);
-		mAnimationStateTop->setLoop(false);
+		if(mAnimationState)
+		{
+			mAnimationState->setLoop(false);
+		}
+
+		if(mAnimationStateTop)
+		{
+			mAnimationStateTop->setLoop(false);
+		}
 	}
 
 	if(mouseState.buttonDown(OIS::MB_Left)) 
@@ -109,8 +125,16 @@ bool Example25FrameListener::frameStarted( const Ogre::FrameEvent& evt )
 		mAnimationState->setLoop(true);
 		*/
 	}
-	mAnimationState->addTime(evt.timeSinceLastFrame * 1.0);
-	mAnimationStateTop->addTime(evt.timeSinceLastFrame * 1.0);
+
+	if(mAnimationState)
+	{
+		mAnimationState->addTime(evt.timeSinceLastFrame * 1.0);
+	}
+
+	if (mAnimationStateTop)
+	{
+		mAnimationStateTop->addTime(evt.timeSinceLastFrame * 1.0);
+	}
 	return true;
 }
 

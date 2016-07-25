@@ -33,13 +33,13 @@
     <ClCompile Include="src\BaseApplication.cpp">
       <Filter>app</Filter>
     </ClCompile>
-    <ClCompile Include="src\Example25FrameListener.cpp">
-      <Filter>app</Filter>
-    </ClCompile>
     <ClCompile Include="src\EntityBaseManager.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
     <ClCompile Include="src\TutorialApplication.cpp">
+      <Filter>MyApp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Example25FrameListener.cpp">
       <Filter>MyApp</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,13 +59,13 @@
     <ClInclude Include="src\BaseApplication.h">
       <Filter>app</Filter>
     </ClInclude>
-    <ClInclude Include="src\Example25FrameListener.h">
-      <Filter>app</Filter>
-    </ClInclude>
     <ClInclude Include="src\EntityBaseManager.h">
       <Filter>Logic</Filter>
     </ClInclude>
     <ClInclude Include="src\TutorialApplication.h">
+      <Filter>MyApp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Example25FrameListener.h">
       <Filter>MyApp</Filter>
     </ClInclude>
   </ItemGroup>
