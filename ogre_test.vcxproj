@@ -81,11 +81,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseApplication.cpp" />
+    <ClCompile Include="src\csvReader.cpp" />
+    <ClCompile Include="src\EntityBase.cpp" />
+    <ClCompile Include="src\EntityBaseManager.cpp" />
+    <ClCompile Include="src\EntityCsv.cpp" />
+    <ClCompile Include="src\EntityCsvManager.cpp" />
     <ClCompile Include="src\Example25FrameListener.cpp" />
     <ClCompile Include="src\TutorialApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseApplication.h" />
+    <ClInclude Include="src\csvReader.h" />
+    <ClInclude Include="src\EntityBase.h" />
+    <ClInclude Include="src\EntityBaseManager.h" />
+    <ClInclude Include="src\EntityCsv.h" />
+    <ClInclude Include="src\EntityCsvManager.h" />
     <ClInclude Include="src\Example25FrameListener.h" />
     <ClInclude Include="src\TutorialApplication.h" />
   </ItemGroup>
