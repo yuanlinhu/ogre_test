@@ -21,9 +21,8 @@ http://www.ogre3d.org/wiki/
 #include "BaseApplication.h"
 
 
+class EntityBaseManager;
 //---------------------------------------------------------------------------
-
-class ShrewMouseManager;
 
 class TutorialApplication : public BaseApplication
 {
@@ -38,6 +37,8 @@ protected:
 	virtual void createFrameListener(void);
 	//virtual void chooseSceneManager(void);
 
+private:
+	void loadCsv();
 	void createPlane();
 	void createLight();
 	void createEntity();
@@ -48,6 +49,7 @@ private:
 	Ogre::SceneNode*		mSinbadNode;
 	Ogre::FrameListener*	mFrameListener;
 
+	EntityBaseManager*		mEntityBaseManager;
 
 private:
 	//ShrewMouseManager* mMiceManager;

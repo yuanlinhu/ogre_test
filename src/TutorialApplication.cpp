@@ -19,6 +19,7 @@ http://www.ogre3d.org/wiki/
 #include "Example25FrameListener.h"
 //#include "Example41.h"
 //#include "ShrewMouceManager.h"
+#include "EntityBaseManager.h"
 //---------------------------------------------------------------------------
 TutorialApplication::TutorialApplication(void)
 {
@@ -27,6 +28,8 @@ TutorialApplication::TutorialApplication(void)
 	mSinbadNode = NULL;
 
 	mFrameListener = NULL;
+
+	mEntityBaseManager = NULL;
 }
 //---------------------------------------------------------------------------
 TutorialApplication::~TutorialApplication(void)
@@ -42,6 +45,8 @@ TutorialApplication::~TutorialApplication(void)
 //---------------------------------------------------------------------------
 void TutorialApplication::createScene(void)
 {
+	mEntityBaseManager = new EntityBaseManager(mSceneMgr);
+	mEntityBaseManager->loadEntity();
 	//mMiceManager = new ShrewMouseManager(mSceneMgr);
     // Create your scene here :)
 	//×ÔÈ»¹â
@@ -62,6 +67,11 @@ void TutorialApplication::createScene(void)
 	mSceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 	return;
 	
+}
+
+
+void TutorialApplication::loadCsv()
+{
 }
 
 void TutorialApplication::createPlane()
@@ -144,6 +154,7 @@ void TutorialApplication::createEntity()
 	mSinbadEntity = sinbadEntity;
 
 	ani_vec.clear();
+
 	/*
 	Ogre::AnimationStateSet* as_set = sinbadEntity->getAllAnimationStates();
 	Ogre::AnimationStateIterator  iter = as_set->getAnimationStateIterator();
