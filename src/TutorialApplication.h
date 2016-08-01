@@ -39,6 +39,7 @@ protected:
 
 private:
 	void loadCsv();
+	void createManual();
 	void createPlane();
 	void createLight();
 	void createEntity();

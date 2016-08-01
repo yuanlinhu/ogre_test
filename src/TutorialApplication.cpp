@@ -21,6 +21,9 @@ http://www.ogre3d.org/wiki/
 //#include "ShrewMouceManager.h"
 #include "EntityBaseManager.h"
 #include "EntityBase.h"
+
+using namespace Ogre;
+
 //---------------------------------------------------------------------------
 TutorialApplication::TutorialApplication(void)
 {
@@ -44,8 +47,40 @@ TutorialApplication::~TutorialApplication(void)
 }
 
 //---------------------------------------------------------------------------
+void TutorialApplication::createManual(void)
+{
+	Ogre::ManualObject* manual = mSceneMgr->createManualObject("Quad");
+	manual->begin("BaseWhiteNoLighting", RenderOperation::OT_TRIANGLE_LIST);
+
+	manual->position(5.0, 0.0, 0.0);
+	manual->textureCoord(0,1);
+	manual->position(-5.0, 10.0,0.0);
+	manual->textureCoord(1,0);
+	manual->position(-5.0, 0.0,0.0);
+	manual->textureCoord(1,1);
+	manual->position(5.0, 10.0, 0.0);
+	manual->textureCoord(0,0);
+
+	manual->index(0);
+	manual->index(1);
+	manual->index(2);
+	manual->index(0);
+	manual->index(3);
+	manual->index(1);
+
+	manual->end();
+	manual->convertToMesh("Quad");
+
+	Ogre::Entity * ent = mSceneMgr->createEntity("Quad");
+	Ogre::SceneNode* node = mSceneMgr->getRootSceneNode()->createChildSceneNode("Node1");
+	node->attachObject(ent);
+}
+
+//---------------------------------------------------------------------------
 void TutorialApplication::createScene(void)
 {
+	mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8);
+
 	mEntityBaseManager = new EntityBaseManager(mSceneMgr);
 	mEntityBaseManager->loadEntity();
 	//mMiceManager = new ShrewMouseManager(mSceneMgr);
@@ -53,10 +88,11 @@ void TutorialApplication::createScene(void)
 	//自然光
 	mSceneMgr->setAmbientLight(Ogre::ColourValue(1.0, 1.0, 1.0));
 
+	createManual();
 	//设置地面
 	createPlane();
 
-	createGrass();
+	//createGrass();
 
 	//设置光源
 	createLight();
@@ -86,14 +122,7 @@ void TutorialApplication::createPlane()
 	Ogre::Entity* planeEntity = mSceneMgr->createEntity("LightPlaneEntity", "plane");
 	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(planeEntity);
 	planeEntity->setMaterialName("Examples/BeachStones");
-	//planeEntity->setMaterialName("Examples/egyptrockyfull");
 	
-
-	/*
-	Ogre::Entity* grassEntity = mSceneMgr->createEntity("GrassPlane", "plane");
-	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(grassEntity);
-	grassEntity->setMaterialName("Examples/clouds");
-	*/
 }
 
 void TutorialApplication::createLight()
@@ -274,8 +303,21 @@ void TutorialApplication::createGrass()
 	
 	manual->end();
 
-	Ogre::SceneNode* grassNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("grassNode2");
-	grassNode->attachObject(manual);
+	manual->convertToMesh("BladesOfGrass");
+
+	for (int i=0; i<1; ++i)
+	{
+		for (int j=0; j<1; ++j)
+		{
+			Entity* ent = mSceneMgr->createEntity("BladesOfGrass");
+			Ogre::SceneNode* grassNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(
+				Vector3(i*3, -10, j*3));
+			grassNode->attachObject(ent);
+		}
+	}
+
+	//Ogre::SceneNode* grassNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("grassNode2");
+	//grassNode->attachObject(manual);
 
 	
 }
