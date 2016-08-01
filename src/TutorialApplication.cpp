@@ -79,6 +79,9 @@ void TutorialApplication::createManual(void)
 //---------------------------------------------------------------------------
 void TutorialApplication::createScene(void)
 {
+	//mSceneMgr = mRoot->createSceneManager(ST_EXTERIOR_CLOSE);
+	//mSceneMgr->setWorldGeometry("terrain.cfg");
+	
 	mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8);
 
 	mEntityBaseManager = new EntityBaseManager(mSceneMgr);
@@ -264,6 +267,10 @@ void TutorialApplication::createViewports( void )
 	Ogre::Viewport* vp = mWindow->addViewport(mCamera);
 	vp->setBackgroundColour(Ogre::ColourValue(0,0,0));
 	mCamera->setAspectRatio(Ogre::Real(vp->getActualWidth())/ Ogre::Real(vp->getActualHeight()));
+
+	ColourValue fadeColour(0.9, 0.9, 0.9);
+	mWindow->getViewport(0)->setBackgroundColour(fadeColour);
+	mSceneMgr->setFog(FOG_LINEAR, fadeColour, 0.0, 50, 500);
 }
 
 void TutorialApplication::createFrameListener( void )
