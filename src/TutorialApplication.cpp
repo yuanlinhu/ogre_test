@@ -268,7 +268,7 @@ void TutorialApplication::createViewports( void )
 	vp->setBackgroundColour(Ogre::ColourValue(0,0,0));
 	mCamera->setAspectRatio(Ogre::Real(vp->getActualWidth())/ Ogre::Real(vp->getActualHeight()));
 
-	ColourValue fadeColour(0.9, 0.9, 0.9);
+	ColourValue fadeColour(0.3, 0.3, 0.4);
 	mWindow->getViewport(0)->setBackgroundColour(fadeColour);
 	mSceneMgr->setFog(FOG_LINEAR, fadeColour, 0.0, 50, 500);
 }
