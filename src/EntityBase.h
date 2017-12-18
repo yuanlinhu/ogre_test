@@ -13,7 +13,7 @@ class EntityCsv;
 class EntityBase
 {
 public:
-	EntityBase(EntityCsv* entityCsv, Ogre::Entity* entity, Ogre::SceneNode* scene);
+	EntityBase(EntityCsv* entityCsv, Ogre::Entity* entity, Ogre::SceneNode* scene, int index);
 	~EntityBase();
 
 
@@ -21,6 +21,7 @@ public:
 	Ogre::SceneNode*		getSceneNode();
 
 private:
+	int						mIndex;
 	EntityCsv*				mEntityCsv;
 
 	Ogre::Entity*			mEntity;

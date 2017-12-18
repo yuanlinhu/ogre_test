@@ -16,6 +16,9 @@
     <Filter Include="MyApp">
       <UniqueIdentifier>{220a8c6c-5dad-4f4a-9fab-7ae51f403156}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{5b5f1705-fb2b-4d5d-ba9e-7814737912d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EntityCsv.cpp">
@@ -42,6 +45,9 @@
     <ClCompile Include="src\Example25FrameListener.cpp">
       <Filter>MyApp</Filter>
     </ClCompile>
+    <ClCompile Include="src\uuid.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\EntityCsv.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="src\Example25FrameListener.h">
       <Filter>MyApp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\uuid.h">
+      <Filter>Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -88,6 +88,7 @@
     <ClCompile Include="src\EntityCsvManager.cpp" />
     <ClCompile Include="src\Example25FrameListener.cpp" />
     <ClCompile Include="src\TutorialApplication.cpp" />
+    <ClCompile Include="src\uuid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseApplication.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="src\EntityCsvManager.h" />
     <ClInclude Include="src\Example25FrameListener.h" />
     <ClInclude Include="src\TutorialApplication.h" />
+    <ClInclude Include="src\uuid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

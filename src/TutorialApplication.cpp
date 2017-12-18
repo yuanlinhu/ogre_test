@@ -170,7 +170,12 @@ void TutorialApplication::createLight()
 
 void TutorialApplication::createMonster()
 {
-	EntityBase* newEntity = mEntityBaseManager->createEntity(2);
+	mEntityBaseManager->createEntity(2, 30, 4, 60);
+
+	mEntityBaseManager->createEntity(1, 120, 4, 320);
+	mEntityBaseManager->createEntity(1, -150, 4, 120);
+	mEntityBaseManager->createEntity(1, 170, 4, 110);
+	mEntityBaseManager->createEntity(3, 1130, 4, 1210);
 }
 
 void TutorialApplication::createEntity()

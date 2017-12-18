@@ -24,6 +24,7 @@ public:
 
 
 	void		loadEntity();
+	EntityBase* createEntity(int id, int x, int y, int z);
 	EntityBase* createEntity(int id);
 	void		addEntity(int id, EntityBase* entity);
 

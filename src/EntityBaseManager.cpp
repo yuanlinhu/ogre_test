@@ -23,16 +23,29 @@ void EntityBaseManager::loadEntity()
 	mEntityCsvManager->loadFile();
 }
 
+EntityBase* EntityBaseManager::createEntity(int id, int x, int y, int z)
+{
+
+	EntityBase* newEntity = createEntity(id);
+	if(NULL != newEntity)
+	{
+		newEntity->getSceneNode()->setPosition(Ogre::Vector3(x, y, z));
+	}
+
+	return newEntity;
+}
 
 EntityBase* EntityBaseManager::createEntity(int id)
 {
 	EntityCsv* entityCsv = mEntityCsvManager->getEntityCsvById(id);
 
 	maxIndex++;
-	std::stringstream ss("entity");
-	ss<<entityCsv->id;
+	std::stringstream ss;
+	//ss<<entityCsv->id;
+	ss<<maxIndex;
 	std::string entityName;
 	ss>>entityName;
+	entityName += "_entity";
 
 	Ogre::Entity* newEntity = mSceneManager->createEntity(entityName, entityCsv->mesh_name);
 	Ogre::SceneNode* newNode = mSceneManager->getRootSceneNode()->createChildSceneNode(entityName);
@@ -41,7 +54,7 @@ EntityBase* EntityBaseManager::createEntity(int id)
 	newNode->setPosition(Ogre::Vector3(entityCsv->pos_x, entityCsv->pos_y, entityCsv->pos_z));
 	newNode->attachObject(newEntity);
 
-	EntityBase* newEntityBase = new EntityBase(entityCsv, newEntity, newNode);
+	EntityBase* newEntityBase = new EntityBase(entityCsv, newEntity, newNode, maxIndex);
 
 	this->addEntity(id, newEntityBase);
 
