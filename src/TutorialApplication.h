@@ -26,8 +26,9 @@ TODO:
 
 1. 生成 uid
 2. 重构 createEntity 生成多个实体 方便测试九宫格
-3. 接入网络
-4. WorldCore 编写
+3. WorldCore 编写
+4. 接入网络
+5. protobuf
 
 
 
