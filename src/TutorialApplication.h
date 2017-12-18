@@ -21,6 +21,23 @@ http://www.ogre3d.org/wiki/
 #include "BaseApplication.h"
 
 
+/*
+TODO:
+
+1. 生成 uid
+2. 重构 createEntity 生成多个实体 方便测试九宫格
+3. 接入网络
+4. WorldCore 编写
+
+
+
+
+
+
+
+*/
+
+
 class EntityBaseManager;
 //---------------------------------------------------------------------------
 
@@ -44,6 +61,9 @@ private:
 	void createLight();
 	void createEntity();
 	void createGrass();
+
+	//怪物 非控制实体
+	void createMonster();
 
 private:
 	Ogre::Entity*		mSinbadEntity;

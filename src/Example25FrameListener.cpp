@@ -27,7 +27,7 @@ Example25FrameListener::~Example25FrameListener()
 
 bool Example25FrameListener::frameStarted( const Ogre::FrameEvent& evt )
 {
-	const int speed = 50;
+	const int speed = 200;
 	float rotation = 0;
 	mMouse->capture();
 
@@ -38,32 +38,45 @@ bool Example25FrameListener::frameStarted( const Ogre::FrameEvent& evt )
 	mKeyboard->capture();
 	if (mKeyboard->isKeyDown(OIS::KC_I))
 	{
+		Ogre::Vector3 vec(0, 0, -speed);
 		rotation = 3.14f;
 		mNode->resetOrientation();
 		mNode->yaw(Ogre::Radian(rotation));
-		sinbadTranslate += Ogre::Vector3(0, 0, -speed);
+		sinbadTranslate += vec;
+
+		//ÒÆ¶¯
+		mNode->translate(vec * evt.timeSinceLastFrame);
 	}
 	if (mKeyboard->isKeyDown(OIS::KC_K))
 	{
+		Ogre::Vector3 vec(0, 0, speed);
 		rotation = 0;
 		mNode->resetOrientation();
 		mNode->yaw(Ogre::Radian(rotation));
-		sinbadTranslate += Ogre::Vector3(0, 0, speed);
+		sinbadTranslate += vec;
+
+		mNode->translate(vec * evt.timeSinceLastFrame);
 	}
 	if (mKeyboard->isKeyDown(OIS::KC_J))
 	{
+		Ogre::Vector3 vec(-speed, 0, 0);
 		rotation = -1.57f;
 		mNode->resetOrientation();
 		mNode->yaw(Ogre::Radian(rotation));
 
-		sinbadTranslate += Ogre::Vector3(-speed, 0, 0);
+		sinbadTranslate += vec;
+
+		mNode->translate(vec * evt.timeSinceLastFrame);
 	}
 	if (mKeyboard->isKeyDown(OIS::KC_L))
 	{
+		Ogre::Vector3 vec(speed, 0, 0);
 		rotation = 1.57f;
 		mNode->resetOrientation();
 		mNode->yaw(Ogre::Radian(rotation));
-		sinbadTranslate += Ogre::Vector3(speed, 0, 0);
+		sinbadTranslate += vec;
+
+		mNode->translate(vec * evt.timeSinceLastFrame);
 	}
 
 	if(sinbadTranslate != Ogre::Vector3(0, 0, 0))

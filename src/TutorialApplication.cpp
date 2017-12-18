@@ -104,6 +104,8 @@ void TutorialApplication::createScene(void)
 	//ÉèÖÃÊµÌå
 	createEntity();
 
+	createMonster();
+
 	mSceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 	return;
 	
@@ -164,6 +166,11 @@ void TutorialApplication::createLight()
 	//light2Node->attachObject(light2);
 	*/
 
+}
+
+void TutorialApplication::createMonster()
+{
+	EntityBase* newEntity = mEntityBaseManager->createEntity(2);
 }
 
 void TutorialApplication::createEntity()
